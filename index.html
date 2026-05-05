@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge Studio — 11 On-Chain Slot Games on JustBet</title>
+    <meta name="description" content="Forge Studio creates provably fair on-chain slot games on JustBet. 11 games, Arbitrum-powered, ECVRF verified.">
+    <meta property="og:title" content="Forge Studio — 11 On-Chain Slot Games">
+    <meta property="og:description" content="Provably fair. Every spin verifiable. 11 unique slot games on JustBet, powered by Arbitrum.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@reelforgestudio">
+    <meta name="twitter:title" content="Forge Studio — 11 On-Chain Slot Games">
+    <meta name="twitter:description" content="Provably fair. Every spin verifiable. 11 unique slot games on JustBet.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔨</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --neon: #00ff6a;
+            --neon-dim: #00cc55;
+            --cyan: #00d4ff;
+            --red: #ff3333;
+            --gold: #ffd700;
+            --text: #ffffff;
+            --text-dim: #888888;
+            --border: #222222;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                linear-gradient(rgba(0,255,106,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,106,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 40px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,255,106,0.1);
+            border: 1px solid rgba(0,255,106,0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 13px;
+            color: var(--neon);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .hero-badge .pulse {
+            width: 8px; height: 8px;
+            background: var(--neon);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .forge { color: var(--neon); }
+        .hero h1 .studio { color: var(--text); }
+
+        .hero-sub {
+            font-size: clamp(16px, 3vw, 22px);
+            color: var(--text-dim);
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        .hero-sub strong { color: var(--neon); }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--neon);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--neon);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #33ff88;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,255,106,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon);
+            color: var(--neon);
+            transform: translateY(-2px);
+        }
+
+        /* Games Grid */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 span { color: var(--neon); }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 16px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .game-card:hover {
+            border-color: var(--neon);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,255,106,0.15);
+        }
+
+        .game-thumb {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-thumb::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0; right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, var(--bg-card));
+        }
+
+        .game-info {
+            padding: 16px 20px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .game-theme {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+
+        .game-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: rgba(0,255,106,0.1);
+            color: var(--neon);
+            font-weight: 500;
+        }
+
+        /* Game Themes */
+        .theme-dino { background: linear-gradient(135deg, #1a0033, #4400aa, #00cc66); }
+        .theme-valkyrie { background: linear-gradient(135deg, #0a1628, #1a3a6a, #4488ff); }
+        .theme-pharaoh { background: linear-gradient(135deg, #1a1200, #665500, #ffcc00); }
+        .theme-monster { background: linear-gradient(135deg, #0a0033, #3300cc, #00aaff); }
+        .theme-dragon { background: linear-gradient(135deg, #1a0a00, #663300, #ff6600); }
+        .theme-pirate { background: linear-gradient(135deg, #001a33, #003366, #0099ff); }
+        .theme-wild { background: linear-gradient(135deg, #1a1a00, #554400, #cc8800); }
+        .theme-ocean { background: linear-gradient(135deg, #001a1a, #003344, #00aacc); }
+        .theme-travel { background: linear-gradient(135deg, #0a0a1a, #222255, #5555cc); }
+        .theme-serpent { background: linear-gradient(135deg, #001a00, #004400, #00cc00); }
+        .theme-satoshi { background: linear-gradient(135deg, #1a0a00, #ff6600, #ffaa00); }
+
+        /* Win Highlight */
+        .win-highlight {
+            background: linear-gradient(135deg, rgba(0,255,106,0.05), rgba(0,212,255,0.05));
+            border: 1px solid rgba(0,255,106,0.2);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .win-highlight h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .win-highlight h3 span { color: var(--gold); }
+
+        .multiplier-showcase {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .mult-item {
+            text-align: center;
+        }
+
+        .mult-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .mult-game {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* Why Forge */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--neon); }
+
+        .footer-copy {
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .games-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 20px; }
+            .hero { min-height: 60vh; padding: 60px 16px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="pulse"></span>
+            Live on JustBet — Arbitrum
+        </div>
+        <h1><span class="forge">FORGE</span> <span class="studio">STUDIO</span></h1>
+        <p class="hero-sub">
+            <strong>11 provably fair</strong> on-chain slot games.
+            Every spin verified. Every win real. Built on <strong>Arbitrum</strong> with ECVRF randomness.
+        </p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-value">11</div>
+                <div class="stat-label">Games</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">304x</div>
+                <div class="stat-label">Top Multiplier</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">10-20%</div>
+                <div class="stat-label">Creator Revenue</div>
+            </div>
+        </div>
+        <div class="cta-buttons">
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="btn btn-primary">
+                🎰 Play Now on JustBet
+            </a>
+            <a href="https://x.com/reelforgestudio" target="_blank" class="btn btn-secondary">
+                𝕏 Follow @reelforgestudio
+            </a>
+        </div>
+    </section>
+
+    <!-- Win Highlight -->
+    <div class="container">
+        <div class="win-highlight">
+            <h3>⚡ Recent <span>Big Wins</span> on Forge Studio Games</h3>
+            <div class="multiplier-showcase">
+                <div class="mult-item">
+                    <div class="mult-value">304.92x</div>
+                    <div class="mult-game">Top Hit</div>
+                </div>
+                <div class="mult-item">
+                    <div class="mult-value">121.00x</div>
+                    <div class="mult-game">Big Multiplier</div>
+                </div>
+                <div class="mult-item">
+                    <div class="mult-value">43.40x</div>
+                    <div class="mult-game">Solid Win</div>
+                </div>
+                <div class="mult-item">
+                    <div class="mult-value">36.72x</div>
+                    <div class="mult-game">Nice Hit</div>
+                </div>
+                <div class="mult-item">
+                    <div class="mult-value">31.20x</div>
+                    <div class="mult-game">Multiplier</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Games Grid -->
+    <div class="container">
+        <div class="section-header">
+            <h2>Our <span>Games</span></h2>
+            <p>11 unique slot experiences. Every spin provably fair on Arbitrum.</p>
+        </div>
+        <div class="games-grid">
+            <!-- Game 1 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-dino">🦕</div>
+                <div class="game-info">
+                    <div class="game-title">Dino Glow</div>
+                    <div class="game-theme">Prehistoric Party Vibes</div>
+                    <div class="game-tags">
+                        <span class="tag">High Energy</span>
+                        <span class="tag">Party</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 2 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-valkyrie">⚔️</div>
+                <div class="game-info">
+                    <div class="game-title">Valkyrie Fury</div>
+                    <div class="game-theme">Norse Mythology Warrior</div>
+                    <div class="game-tags">
+                        <span class="tag">Mythology</span>
+                        <span class="tag">Battle</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 3 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-pharaoh">👑</div>
+                <div class="game-info">
+                    <div class="game-title">Pharaoh's Empire</div>
+                    <div class="game-theme">Ancient Egyptian Treasures</div>
+                    <div class="game-tags">
+                        <span class="tag">Egyptian</span>
+                        <span class="tag">Treasure</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 4 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-monster">👹</div>
+                <div class="game-info">
+                    <div class="game-title">Monster Bash</div>
+                    <div class="game-theme">Monster Party Madness</div>
+                    <div class="game-tags">
+                        <span class="tag">Fun</span>
+                        <span class="tag">Party</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 5 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-dragon">🐉</div>
+                <div class="game-info">
+                    <div class="game-title">Mystic Dragons</div>
+                    <div class="game-theme">Legendary Dragon Fantasy</div>
+                    <div class="game-tags">
+                        <span class="tag">Fantasy</span>
+                        <span class="tag">Epic</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 6 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-pirate">🏴‍☠️</div>
+                <div class="game-info">
+                    <div class="game-title">Pirate Legends</div>
+                    <div class="game-theme">High Seas Adventure</div>
+                    <div class="game-tags">
+                        <span class="tag">Adventure</span>
+                        <span class="tag">Pirates</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 7 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-wild">🦁</div>
+                <div class="game-info">
+                    <div class="game-title">Wild Pursuit</div>
+                    <div class="game-theme">African Safari Hunt</div>
+                    <div class="game-tags">
+                        <span class="tag">Safari</span>
+                        <span class="tag">Wildlife</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 8 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-ocean">🎣</div>
+                <div class="game-info">
+                    <div class="game-title">Ocean Reels Pursuit</div>
+                    <div class="game-theme">Deep Sea Fishing</div>
+                    <div class="game-tags">
+                        <span class="tag">Ocean</span>
+                        <span class="tag">Fishing</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 9 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-travel">✈️</div>
+                <div class="game-info">
+                    <div class="game-title">Around The World</div>
+                    <div class="game-theme">Global Travel Adventure</div>
+                    <div class="game-tags">
+                        <span class="tag">Travel</span>
+                        <span class="tag">Adventure</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 10 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-serpent">🐍</div>
+                <div class="game-info">
+                    <div class="game-title">Serpent's Glyph</div>
+                    <div class="game-theme">Aztec Jungle Mystery</div>
+                    <div class="game-tags">
+                        <span class="tag">Aztec</span>
+                        <span class="tag">Mystery</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 11 -->
+            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
+                <div class="game-thumb theme-satoshi">₿</div>
+                <div class="game-info">
+                    <div class="game-title">Satoshi's Vault</div>
+                    <div class="game-theme">Crypto Bitcoin Heist</div>
+                    <div class="game-tags">
+                        <span class="tag">Crypto</span>
+                        <span class="tag">Bitcoin</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Why Forge Studio -->
+    <div class="container">
+        <div class="section-header" style="margin-top: 60px;">
+            <h2>Why <span>Forge Studio</span>?</h2>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h4>Provably Fair</h4>
+                <p>Every spin uses ECVRF cryptographic randomness. Results are committed on-chain every 5 minutes as Merkle roots. No trust required.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⛓️</div>
+                <h4>Arbitrum Powered</h4>
+                <p>Built on Arbitrum L2 for fast, cheap transactions. USDC vault powered by WINR Protocol. Instant trustless withdrawals.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h4>11 Unique Themes</h4>
+                <p>From Norse warriors to crypto vaults, Aztec mysteries to pirate adventures. A game for every player style.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔓</div>
+                <h4>No KYC Required</h4>
+                <p>Connect wallet and play. No signups, no approvals, no delays. Pure on-chain gambling freedom.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://just.bet/affiliate?ref=bet" target="_blank">JustBet Profile</a>
+                <a href="https://x.com/reelforgestudio" target="_blank">𝕏 / X</a>
+                <a href="https://www.just.bet" target="_blank">JustBet</a>
+                <a href="https://winr.gg" target="_blank">WINR Protocol</a>
+            </div>
+            <p class="footer-copy">© 2026 Forge Studio — Forged on-chain. Provably fair.</p>
+        </div>
+    </footer>
+</body>
+</html>
