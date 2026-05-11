@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reel Forge Studio — 11 On-Chain Slot Games on JustBet</title>
-    <meta name="description" content="Reel Forge Studio creates provably fair on-chain slot games on JustBet. 11 games, Arbitrum-powered, ECVRF verified.">
-    <meta property="og:title" content="Reel Forge Studio — 11 On-Chain Slot Games">
-    <meta property="og:description" content="Provably fair. Every spin verifiable. 11 unique slot games on JustBet, powered by Arbitrum.">
+    <title>Reel Forge Studio — 15 On-Chain Slot Games on JustBet</title>
+    <meta name="description" content="Reel Forge Studio creates provably fair on-chain slot games on JustBet. 15 games, Arbitrum-powered, ECVRF verified. Top 3 Creator on JustBet.">
+    <meta property="og:title" content="Reel Forge Studio — 15 On-Chain Slot Games | Top 3 Creator">
+    <meta property="og:description" content="Provably fair. Every spin verifiable. 15 unique slot games on JustBet, powered by Arbitrum. Top 3 Games & Top 3 Creator.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@reelforgestudio">
-    <meta name="twitter:title" content="Reel Forge Studio — 11 On-Chain Slot Games">
-    <meta name="twitter:description" content="Provably fair. Every spin verifiable. 11 unique slot games on JustBet.">
+    <meta name="twitter:title" content="Reel Forge Studio — 15 On-Chain Slot Games | Top 3 Creator">
+    <meta name="twitter:description" content="Provably fair. Every spin verifiable. 15 unique slot games on JustBet. Top 3 Games & Top 3 Creator.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔨</text></svg>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
@@ -39,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated background */
         .bg-grid {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -80,7 +79,7 @@
             padding: 6px 16px;
             font-size: 13px;
             color: var(--neon);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             font-weight: 500;
         }
 
@@ -94,6 +93,20 @@
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 13px;
+            color: var(--gold);
+            margin-bottom: 24px;
+            font-weight: 600;
         }
 
         .hero h1 {
@@ -110,7 +123,7 @@
         .hero-sub {
             font-size: clamp(16px, 3vw, 22px);
             color: var(--text-dim);
-            max-width: 600px;
+            max-width: 650px;
             line-height: 1.5;
             margin-bottom: 32px;
         }
@@ -213,7 +226,7 @@
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -235,12 +248,33 @@
             box-shadow: 0 12px 40px rgba(0,255,106,0.15);
         }
 
+        .game-card.featured {
+            border-color: rgba(255,215,0,0.4);
+        }
+
+        .game-card.featured:hover {
+            border-color: var(--gold);
+            box-shadow: 0 12px 40px rgba(255,215,0,0.15);
+        }
+
+        .featured-label {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold);
+            color: #000;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 100px;
+            z-index: 2;
+        }
+
         .game-thumb {
             height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 64px;
             position: relative;
             overflow: hidden;
         }
@@ -249,6 +283,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
         }
 
         .game-thumb::after {
@@ -293,18 +328,10 @@
             font-weight: 500;
         }
 
-        /* Game Themes */
-        .theme-dino { background: linear-gradient(135deg, #1a0033, #4400aa, #00cc66); }
-        .theme-valkyrie { background: linear-gradient(135deg, #0a1628, #1a3a6a, #4488ff); }
-        .theme-pharaoh { background: linear-gradient(135deg, #1a1200, #665500, #ffcc00); }
-        .theme-monster { background: linear-gradient(135deg, #0a0033, #3300cc, #00aaff); }
-        .theme-dragon { background: linear-gradient(135deg, #1a0a00, #663300, #ff6600); }
-        .theme-pirate { background: linear-gradient(135deg, #001a33, #003366, #0099ff); }
-        .theme-wild { background: linear-gradient(135deg, #1a1a00, #554400, #cc8800); }
-        .theme-ocean { background: linear-gradient(135deg, #001a1a, #003344, #00aacc); }
-        .theme-travel { background: linear-gradient(135deg, #0a0a1a, #222255, #5555cc); }
-        .theme-serpent { background: linear-gradient(135deg, #001a00, #004400, #00cc00); }
-        .theme-satoshi { background: linear-gradient(135deg, #1a0a00, #ff6600, #ffaa00); }
+        .tag-hot {
+            background: rgba(255,215,0,0.1);
+            color: var(--gold);
+        }
 
         /* Win Highlight */
         .win-highlight {
@@ -428,27 +455,38 @@
             <span class="pulse"></span>
             Live on JustBet — Arbitrum
         </div>
+        <div class="rank-badge">
+            🏆 Top 3 Games & Top 3 Creator (30d)
+        </div>
         <h1><span class="forge">REEL FORGE</span> <span class="studio">STUDIO</span></h1>
         <p class="hero-sub">
-            <strong>11 provably fair</strong> on-chain slot games.
+            <strong>15 provably fair</strong> on-chain slot games.
             Every spin verified. Every win real. Built on <strong>Arbitrum</strong> with ECVRF randomness.
         </p>
         <div class="hero-stats">
             <div class="stat">
-                <div class="stat-value">11</div>
+                <div class="stat-value">15</div>
                 <div class="stat-label">Games</div>
             </div>
             <div class="stat">
-                <div class="stat-value">304x</div>
-                <div class="stat-label">Top Multiplier</div>
+                <div class="stat-value">#3</div>
+                <div class="stat-label">Top Creator</div>
             </div>
             <div class="stat">
-                <div class="stat-value">10-20%</div>
-                <div class="stat-label">Creator Revenue</div>
+                <div class="stat-value">304.92x</div>
+                <div class="stat-label">Best Multiplier</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2,955</div>
+                <div class="stat-label">Total Bets (7d)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$699.64</div>
+                <div class="stat-label">Volume (7d)</div>
             </div>
         </div>
         <div class="cta-buttons">
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="btn btn-primary">
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="btn btn-primary">
                 🎰 Play Now on JustBet
             </a>
             <a href="https://x.com/reelforgestudio" target="_blank" class="btn btn-secondary">
@@ -460,27 +498,27 @@
     <!-- Win Highlight -->
     <div class="container">
         <div class="win-highlight">
-            <h3>⚡ Recent <span>Big Wins</span> on Reel Forge Studio Games</h3>
+            <h3>⚡ Biggest <span>Wins</span> on Reel Forge Studio Games</h3>
             <div class="multiplier-showcase">
                 <div class="mult-item">
                     <div class="mult-value">304.92x</div>
-                    <div class="mult-game">Top Hit</div>
+                    <div class="mult-game">Around the World</div>
+                </div>
+                <div class="mult-item">
+                    <div class="mult-value">200.80x</div>
+                    <div class="mult-game">Zombie Frenzy</div>
                 </div>
                 <div class="mult-item">
                     <div class="mult-value">121.00x</div>
-                    <div class="mult-game">Big Multiplier</div>
+                    <div class="mult-game">Pharaoh's Empire</div>
                 </div>
                 <div class="mult-item">
-                    <div class="mult-value">43.40x</div>
-                    <div class="mult-game">Solid Win</div>
+                    <div class="mult-value">104.40x</div>
+                    <div class="mult-game">Zombie Frenzy</div>
                 </div>
                 <div class="mult-item">
-                    <div class="mult-value">36.72x</div>
-                    <div class="mult-game">Nice Hit</div>
-                </div>
-                <div class="mult-item">
-                    <div class="mult-value">31.20x</div>
-                    <div class="mult-game">Multiplier</div>
+                    <div class="mult-value">60.00x</div>
+                    <div class="mult-game">Zombie Frenzy</div>
                 </div>
             </div>
         </div>
@@ -490,12 +528,76 @@
     <div class="container">
         <div class="section-header">
             <h2>Our <span>Games</span></h2>
-            <p>11 unique slot experiences. Every spin provably fair on Arbitrum.</p>
+            <p>15 unique slot experiences. Every spin provably fair on Arbitrum.</p>
         </div>
         <div class="games-grid">
-            <!-- Game 1 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-dino"><img src="images/dino-glow.webp" alt="Dino Glow"></div>
+
+            <!-- Zombie Frenzy — TOP GAME -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card featured">
+                <div class="game-thumb">
+                    <span class="featured-label">🔥 #3 TOP GAME</span>
+                    <img src="images/zombie-frenzy.jpg" alt="Zombie Frenzy">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">Zombie Frenzy</div>
+                    <div class="game-theme">Undead Party Mayhem</div>
+                    <div class="game-tags">
+                        <span class="tag tag-hot">200.80x Hit</span>
+                        <span class="tag">$557 Vol</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Boss Baby Chaos -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/boss-baby-chaos.jpg" alt="Boss Baby Chaos">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">Boss Baby Chaos</div>
+                    <div class="game-theme">Diaper-Clad Destruction</div>
+                    <div class="game-tags">
+                        <span class="tag">Fun</span>
+                        <span class="tag">Chaos</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Space Rascals -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/space-rascals.jpg" alt="Space Rascals">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">Space Rascals</div>
+                    <div class="game-theme">Intergalactic Trouble</div>
+                    <div class="game-tags">
+                        <span class="tag">36.80x Hit</span>
+                        <span class="tag">Sci-Fi</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Monster Truck Mayhem -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/monster-truck-mayhem.jpg" alt="Monster Truck Mayhem">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">Monster Truck Mayhem</div>
+                    <div class="game-theme">Full Throttle Destruction</div>
+                    <div class="game-tags">
+                        <span class="tag">Action</span>
+                        <span class="tag">Racing</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Dino Glow -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/dino-glow.jpg" alt="Dino Glow">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Dino Glow</div>
                     <div class="game-theme">Prehistoric Party Vibes</div>
@@ -506,9 +608,11 @@
                 </div>
             </a>
 
-            <!-- Game 2 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-valkyrie"><img src="images/valkyrie-fury.webp" alt="Valkyrie Fury"></div>
+            <!-- Valkyrie Fury -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/valkyrie-fury.jpg" alt="Valkyrie Fury">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Valkyrie Fury</div>
                     <div class="game-theme">Norse Mythology Warrior</div>
@@ -519,35 +623,41 @@
                 </div>
             </a>
 
-            <!-- Game 3 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-pharaoh"><img src="images/pharaohs-empire.webp" alt="Pharaoh's Empire"></div>
+            <!-- Pharaoh's Empire -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/pharaohs-empire.jpg" alt="Pharaoh's Empire">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Pharaoh's Empire</div>
                     <div class="game-theme">Ancient Egyptian Treasures</div>
                     <div class="game-tags">
-                        <span class="tag">Egyptian</span>
+                        <span class="tag tag-hot">121.00x Hit</span>
                         <span class="tag">Treasure</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Game 4 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-monster"><img src="images/monster-bash.webp" alt="Monster Bash"></div>
+            <!-- Monster Bash -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/monster-bash.jpg" alt="Monster Bash">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Monster Bash</div>
                     <div class="game-theme">Monster Party Madness</div>
                     <div class="game-tags">
-                        <span class="tag">Fun</span>
+                        <span class="tag">43.40x Hit</span>
                         <span class="tag">Party</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Game 5 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-dragon"><img src="images/mystic-dragons.webp" alt="Mystic Dragons"></div>
+            <!-- Mystic Dragons -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/mystic-dragons.jpg" alt="Mystic Dragons">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Mystic Dragons</div>
                     <div class="game-theme">Legendary Dragon Fantasy</div>
@@ -558,9 +668,11 @@
                 </div>
             </a>
 
-            <!-- Game 6 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-pirate"><img src="images/pirate-legends.webp" alt="Pirate Legends"></div>
+            <!-- Pirate Legends -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/pirate-legends.jpg" alt="Pirate Legends">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Pirate Legends</div>
                     <div class="game-theme">High Seas Adventure</div>
@@ -571,9 +683,11 @@
                 </div>
             </a>
 
-            <!-- Game 7 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-wild"><img src="images/wild-pursuit.webp" alt="Wild Pursuit"></div>
+            <!-- Wild Pursuit -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/wild-pursuit.jpg" alt="Wild Pursuit">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Wild Pursuit</div>
                     <div class="game-theme">African Safari Hunt</div>
@@ -584,9 +698,11 @@
                 </div>
             </a>
 
-            <!-- Game 8 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-ocean"><img src="images/ocean-reels-pursuit.webp" alt="Ocean Reels Pursuit"></div>
+            <!-- Ocean Reels Pursuit -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/ocean-reels-pursuit.jpg" alt="Ocean Reels Pursuit">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Ocean Reels Pursuit</div>
                     <div class="game-theme">Deep Sea Fishing</div>
@@ -597,22 +713,26 @@
                 </div>
             </a>
 
-            <!-- Game 9 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-travel"><img src="images/around-the-world.webp" alt="Around The World"></div>
+            <!-- Around the World -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/around-the-world.jpg" alt="Around The World">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Around The World</div>
                     <div class="game-theme">Global Travel Adventure</div>
                     <div class="game-tags">
+                        <span class="tag tag-hot">304.92x Hit</span>
                         <span class="tag">Travel</span>
-                        <span class="tag">Adventure</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Game 10 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-serpent"><img src="images/serpents-glyph.webp" alt="Serpent's Glyph"></div>
+            <!-- Serpent's Glyph -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/serpents-glyph.jpg" alt="Serpent's Glyph">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Serpent's Glyph</div>
                     <div class="game-theme">Aztec Jungle Mystery</div>
@@ -623,9 +743,11 @@
                 </div>
             </a>
 
-            <!-- Game 11 -->
-            <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="game-card">
-                <div class="game-thumb theme-satoshi"><img src="images/satoshis-vault.webp" alt="Satoshi's Vault"></div>
+            <!-- Satoshi's Vault -->
+            <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <img src="images/satoshis-vault.jpg" alt="Satoshi's Vault">
+                </div>
                 <div class="game-info">
                     <div class="game-title">Satoshi's Vault</div>
                     <div class="game-theme">Crypto Bitcoin Heist</div>
@@ -647,7 +769,7 @@
             <div class="feature">
                 <div class="feature-icon">⚡</div>
                 <h4>Provably Fair</h4>
-                <p>Every spin uses ECVRF cryptographic randomness. Results are committed on-chain every 5 minutes as Merkle roots. No trust required.</p>
+                <p>Every spin uses ECVRF cryptographic randomness. Results committed on-chain every 5 minutes as Merkle roots. No trust required.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">⛓️</div>
@@ -656,13 +778,13 @@
             </div>
             <div class="feature">
                 <div class="feature-icon">🎨</div>
-                <h4>11 Unique Themes</h4>
-                <p>From Norse warriors to crypto vaults, Aztec mysteries to pirate adventures. A game for every player style.</p>
+                <h4>15 Unique Themes</h4>
+                <p>From zombie parties to crypto vaults, Viking warriors to space aliens. A game for every player style.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🔓</div>
-                <h4>No KYC Required</h4>
-                <p>Connect wallet and play. No signups, no approvals, no delays. Pure on-chain gambling freedom.</p>
+                <div class="feature-icon">🏆</div>
+                <h4>Top 3 Creator</h4>
+                <p>Ranked #3 Top Creator and #3 Top Game on JustBet. 2,955 bets in 7 days. 8,956 credits earned. Growing fast.</p>
             </div>
         </div>
     </div>
@@ -671,9 +793,9 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://just.bet/affiliate?ref=bet" target="_blank">JustBet Profile</a>
+                <a href="https://just.bet/profile/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1" target="_blank">JustBet Profile</a>
                 <a href="https://x.com/reelforgestudio" target="_blank">𝕏 / X</a>
-                <a href="https://www.just.bet" target="_blank">JustBet</a>
+                <a href="https://just.bet" target="_blank">JustBet</a>
                 <a href="https://winr.gg" target="_blank">WINR Protocol</a>
             </div>
             <p class="footer-copy">© 2026 Reel Forge Studio — Forged on-chain. Provably fair.</p>
