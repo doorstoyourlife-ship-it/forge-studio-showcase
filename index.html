@@ -438,11 +438,249 @@
             font-size: 13px;
         }
 
+        /* Creator CTA Section */
+        .creator-cta {
+            background: linear-gradient(135deg, rgba(0,255,106,0.08), rgba(0,212,255,0.08));
+            border: 1px solid rgba(0,255,106,0.2);
+            border-radius: 20px;
+            padding: 48px 32px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .creator-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(0,255,106,0.05), transparent 70%);
+            animation: creatorGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes creatorGlow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .creator-cta h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .creator-cta h2 span { color: var(--neon); }
+
+        .creator-cta .cta-sub {
+            font-size: 18px;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .creator-cta .cta-sub strong { color: var(--cyan); }
+
+        .creator-perks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .perk {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+        }
+
+        .perk-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .perk h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--neon);
+        }
+
+        .perk p {
+            font-size: 12px;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+            padding: 0 24px;
+        }
+
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 380px;
+        }
+
+        .proof-card .proof-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .proof-card .proof-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neon);
+            margin-bottom: 4px;
+        }
+
+        .proof-card .proof-desc {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .proof-tweet {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 500px;
+            min-width: 280px;
+            flex: 1;
+        }
+
+        .proof-tweet .tweet-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .proof-tweet .tweet-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .proof-tweet .tweet-name {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .proof-tweet .tweet-handle {
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .proof-tweet .tweet-body {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .proof-tweet .tweet-body .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .proof-tweet .tweet-link {
+            font-size: 13px;
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .proof-tweet .tweet-link:hover { text-decoration: underline; }
+
+        /* Sticky Mobile CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            padding: 12px 16px;
+            z-index: 1000;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .sticky-cta .btn {
+            padding: 12px 24px;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .faq-item {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: left;
+        }
+
+        .faq-item .faq-q {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--cyan);
+            margin-bottom: 6px;
+        }
+
+        .faq-item .faq-a {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
         /* Responsive */
         @media (max-width: 640px) {
             .games-grid { grid-template-columns: 1fr; }
             .hero-stats { gap: 20px; }
             .hero { min-height: 60vh; padding: 60px 16px 30px; }
+            .sticky-cta { display: flex; }
+            .creator-cta { padding: 32px 20px; }
+            .creator-cta h2 { font-size: 24px; }
+            body { padding-bottom: 70px; }
         }
     </style>
 </head>
@@ -783,6 +1021,91 @@
         </div>
     </div>
 
+    <!-- Social Proof -->
+    <div class="social-proof">
+        <div class="proof-card">
+            <div class="proof-label">Creator Ranking</div>
+            <div class="proof-value">#2</div>
+            <div class="proof-desc">Top Creator on JustBet (7d). 16 games, 3,207 bets, $723.81 volume.</div>
+        </div>
+        <div class="proof-card">
+            <div class="proof-label">Biggest Hit</div>
+            <div class="proof-value">304.92x</div>
+            <div class="proof-desc">Multiplier on Around the World. Provably fair, verified on-chain.</div>
+        </div>
+        <div class="proof-tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar">JB</div>
+                <div>
+                    <div class="tweet-name">JustBet</div>
+                    <div class="tweet-handle">@JustBetOnchain</div>
+                </div>
+            </div>
+            <div class="tweet-body">
+                Creator of the Week → <span class="highlight">ReelForgeStudio</span> @IceCryptoMouse<br>
+                🎮 Games shipped: 16<br>
+                🏆 Top game: Zombie Frenzy (96.1% RTP)
+            </div>
+            <a href="https://x.com/JustBetOnchain/status/2054214832044274075" target="_blank" class="tweet-link">View on X →</a>
+        </div>
+    </div>
+
+    <!-- Become a Creator CTA -->
+    <div class="container">
+        <div class="creator-cta">
+            <h2>🔨 Build Your Own <span>Slot Games</span></h2>
+            <p class="cta-sub">
+                Turn your audience into players. Create branded on-chain slot games on JustBet — <strong>no coding required</strong>. Earn from every bet. I did it — 16 games, #2 Creator, Creator of the Week.
+            </p>
+            <div class="creator-perks">
+                <div class="perk">
+                    <div class="perk-icon">🎨</div>
+                    <h4>No Coding</h4>
+                    <p>Design your game with JustBet's builder. Theme, symbols, payouts — all visual.</p>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">💰</div>
+                    <h4>Earn Per Bet</h4>
+                    <p>Revenue share on every bet placed on your games. Passive income from your audience.</p>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">⛓️</div>
+                    <h4>On-Chain</h4>
+                    <p>ECVRF randomness. Provably fair. Instant withdrawals. Trust = more players.</p>
+                </div>
+                <div class="perk">
+                    <div class="perk-icon">📢</div>
+                    <h4>Free Promo</h4>
+                    <p>Creator of the Week program. Get featured by JustBet. I'll promote your games too.</p>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="btn btn-primary" style="font-size:18px;padding:16px 32px;">
+                    🚀 Start Building on JustBet
+                </a>
+            </div>
+            <p style="margin-top:16px;font-size:12px;color:#666;position:relative;">Sign up free through our link — I'll personally help you build & launch your first game.</p>
+            <div class="faq-grid" style="max-width:800px;margin:32px auto 0;">
+                <div class="faq-item">
+                    <div class="faq-q">Do I need to code?</div>
+                    <div class="faq-a">No. JustBet has a visual game builder. Pick a theme, set payouts, publish.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How much can I earn?</div>
+                    <div class="faq-a">Revenue share on every bet. Top creators earn $500–$4,000+/week in volume.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How long to launch?</div>
+                    <div class="faq-a">Your first game can be live in under an hour. Seriously.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What about fairness?</div>
+                    <div class="faq-a">ECVRF cryptographic randomness. Results committed on-chain every 5 minutes. Fully verifiable.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Why Forge Studio -->
     <div class="container">
         <div class="section-header" style="margin-top: 60px;">
@@ -825,5 +1148,14 @@
             <p class="footer-copy">© 2026 Reel Forge Studio — Forged on-chain. Provably fair.</p>
         </div>
     </footer>
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="btn btn-primary">
+            🎰 Play Now
+        </a>
+        <a href="https://just.bet/affiliate?ref=bet" target="_blank" class="btn btn-secondary">
+            🔨 Build Games
+        </a>
+    </div>
 </body>
 </html>
