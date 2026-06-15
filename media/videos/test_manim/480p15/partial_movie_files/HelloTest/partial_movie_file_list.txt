@@ -1,4 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/roberts/Projects/forge-studio-showcase/media/videos/test_manim/480p15/partial_movie_files/HelloTest/1777723614_2262435803_223132457.mp4'
-file 'file:/home/roberts/Projects/forge-studio-showcase/media/videos/test_manim/480p15/partial_movie_files/HelloTest/570263860_1432596116_4292885408.mp4'
-file 'file:/home/roberts/Projects/forge-studio-showcase/media/videos/test_manim/480p15/partial_movie_files/HelloTest/570263860_565251718_2873729818.mp4'
