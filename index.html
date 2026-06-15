@@ -335,42 +335,90 @@
 
         /* Win Highlight */
         .win-highlight {
-            background: linear-gradient(135deg, rgba(0,255,106,0.05), rgba(0,212,255,0.05));
+            background: linear-gradient(135deg, rgba(0,255,106,0.08), rgba(0,212,255,0.05));
             border: 1px solid rgba(0,255,106,0.2);
-            border-radius: 16px;
-            padding: 32px;
-            margin: 40px 0;
-            text-align: center;
+            border-radius: 20px;
+            padding: 48px 32px;
+            margin: 48px 0;
         }
 
         .win-highlight h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-align: center;
         }
 
         .win-highlight h3 span { color: var(--gold); }
 
-        .multiplier-showcase {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        .win-highlight .subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-bottom: 32px;
         }
 
-        .mult-item {
+        .wins-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 900px) { .wins-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .wins-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .win-card {
+            position: relative;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .win-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+
+        .win-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .win-card .rank-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(0,0,0,0.8);
+            border-radius: 8px;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .win-card.rank-1 .rank-badge { background: var(--gold); color: #000; }
+
+        .win-card .win-info {
+            padding: 12px;
             text-align: center;
         }
 
-        .mult-value {
+        .win-card .win-mult {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 32px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--gold);
         }
 
-        .mult-game {
+        .win-card .win-payout {
+            font-size: 11px;
+            color: var(--neon);
+            margin-top: 2px;
+        }
+
+        .win-card .win-name {
             font-size: 12px;
             color: var(--text-dim);
             margin-top: 4px;
@@ -736,31 +784,53 @@
     <!-- Win Highlight -->
     <div class="container">
         <div class="win-highlight">
-            <h3>⚡ Biggest <span>Wins</span> on Reel Forge Studio Games</h3>
-            <div class="multiplier-showcase">
-                <div class="mult-item">
-                    <div class="mult-value">411.80x</div>
-                    <div class="mult-game">Zombie Frenzy</div>
+            <h3>⚡ Biggest <span>Wins</span> — Top 5 Games</h3>
+            <p class="subtitle">Real on-chain payouts. Every spin verifiable on Arbitrum.</p>
+            <div class="wins-grid">
+                <div class="win-card rank-1">
+                    <span class="rank-badge">#1</span>
+                    <img src="images/zombie-frenzy.webp" alt="Zombie Frenzy">
+                    <div class="win-info">
+                        <div class="win-mult">411.80x</div>
+                        <div class="win-payout">Payout: 20,590</div>
+                        <div class="win-name">Zombie Frenzy</div>
+                    </div>
                 </div>
-                <div class="mult-item">
-                    <div class="mult-value">318.75x</div>
-                    <div class="mult-game">Monster Bash</div>
+                <div class="win-card">
+                    <span class="rank-badge">#2</span>
+                    <img src="images/monster-bash.webp" alt="Monster Bash">
+                    <div class="win-info">
+                        <div class="win-mult">318.75x</div>
+                        <div class="win-payout">Payout: 15,937</div>
+                        <div class="win-name">Monster Bash</div>
+                    </div>
                 </div>
-                <div class="mult-item">
-                    <div class="mult-value">304.92x</div>
-                    <div class="mult-game">Around the World</div>
+                <div class="win-card">
+                    <span class="rank-badge">#3</span>
+                    <img src="images/winner-chicken-dinner.webp" alt="Winner Chicken Dinner">
+                    <div class="win-info">
+                        <div class="win-mult">133.40x</div>
+                        <div class="win-payout">Payout: 6,670</div>
+                        <div class="win-name">Winner Chicken Dinner</div>
+                    </div>
                 </div>
-                <div class="mult-item">
-                    <div class="mult-value">200.80x</div>
-                    <div class="mult-game">Zombie Frenzy</div>
+                <div class="win-card">
+                    <span class="rank-badge">#4</span>
+                    <img src="images/wild-pursuit.webp" alt="Wild Pursuit">
+                    <div class="win-info">
+                        <div class="win-mult">122.00x</div>
+                        <div class="win-payout">Payout: 7,625</div>
+                        <div class="win-name">Wild Pursuit</div>
+                    </div>
                 </div>
-                <div class="mult-item">
-                    <div class="mult-value">133.40x</div>
-                    <div class="mult-game">Winner Chicken Dinner</div>
-                </div>
-                <div class="mult-item">
-                    <div class="mult-value">122.00x</div>
-                    <div class="mult-game">Wild Pursuit</div>
+                <div class="win-card">
+                    <span class="rank-badge">#5</span>
+                    <img src="images/fat-worm-frenzy.webp" alt="Fat Worm Frenzy">
+                    <div class="win-info">
+                        <div class="win-mult">90.00x</div>
+                        <div class="win-payout">Payout: 4,500</div>
+                        <div class="win-name">Fat Worm</div>
+                    </div>
                 </div>
             </div>
         </div>
