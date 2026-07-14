@@ -19,17 +19,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #0a0a0a;
-            --bg-card: #111111;
-            --bg-card-hover: #1a1a1a;
-            --neon: #00ff6a;
-            --neon-dim: #00cc55;
+            --bg: #0a0612;
+            --bg-card: #14102a;
+            --bg-card-hover: #1c1538;
+            --neon: #a855f7;
+            --neon-dim: #7c3aed;
             --cyan: #00d4ff;
             --red: #ff3333;
             --gold: #ffd700;
             --text: #ffffff;
-            --text-dim: #888888;
-            --border: #222222;
+            --text-dim: #9ca3b8;
+            --border: #2a1f3d;
         }
 
         body {
@@ -43,8 +43,8 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image:
-                linear-gradient(rgba(0,255,106,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,255,106,0.03) 1px, transparent 1px);
+                linear-gradient(rgba(168,85,247,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168,85,247,0.04) 1px, transparent 1px);
             background-size: 50px 50px;
             z-index: 0;
             pointer-events: none;
@@ -67,20 +67,33 @@
             justify-content: center;
             text-align: center;
             padding: 80px 24px 40px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 600px;
+            background: radial-gradient(ellipse at center, rgba(168,85,247,0.12) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(0,255,106,0.1);
-            border: 1px solid rgba(0,255,106,0.3);
+            background: rgba(168,85,247,0.1);
+            border: 1px solid rgba(168,85,247,0.3);
             border-radius: 100px;
             padding: 6px 16px;
             font-size: 13px;
             color: var(--neon);
             margin-bottom: 16px;
             font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-badge .pulse {
@@ -99,14 +112,16 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,215,0,0.1);
-            border: 1px solid rgba(255,215,0,0.3);
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.3);
             border-radius: 100px;
             padding: 6px 16px;
             font-size: 13px;
-            color: var(--gold);
+            color: var(--cyan);
             margin-bottom: 24px;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -115,9 +130,16 @@
             line-height: 1;
             margin-bottom: 16px;
             letter-spacing: -2px;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero h1 .forge { color: var(--neon); }
+        .hero h1 .forge {
+            background: linear-gradient(135deg, #a855f7, #c084fc, #e9d5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .hero h1 .studio { color: var(--text); }
 
         .hero-sub {
@@ -126,6 +148,8 @@
             max-width: 650px;
             line-height: 1.5;
             margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-sub strong { color: var(--neon); }
@@ -136,11 +160,11 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
 
-        .stat {
-            text-align: center;
-        }
+        .stat { text-align: center; }
 
         .stat-value {
             font-family: 'JetBrains Mono', monospace;
@@ -162,6 +186,8 @@
             gap: 16px;
             flex-wrap: wrap;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
 
         .btn {
@@ -179,14 +205,14 @@
         }
 
         .btn-primary {
-            background: var(--neon);
-            color: #000;
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: #fff;
         }
 
         .btn-primary:hover {
-            background: #33ff88;
+            background: linear-gradient(135deg, #9333ea, #7c3aed);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,255,106,0.3);
+            box-shadow: 0 8px 30px rgba(168,85,247,0.4);
         }
 
         .btn-secondary {
@@ -202,9 +228,7 @@
         }
 
         /* Games Grid */
-        .section {
-            padding: 60px 0;
-        }
+        .section { padding: 60px 0; }
 
         .section-header {
             text-align: center;
@@ -217,7 +241,12 @@
             margin-bottom: 12px;
         }
 
-        .section-header h2 span { color: var(--neon); }
+        .section-header h2 span {
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
         .section-header p {
             color: var(--text-dim);
@@ -245,16 +274,14 @@
         .game-card:hover {
             border-color: var(--neon);
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,255,106,0.15);
+            box-shadow: 0 12px 40px rgba(168,85,247,0.2);
         }
 
-        .game-card.featured {
-            border-color: rgba(255,215,0,0.4);
-        }
+        .game-card.featured { border-color: rgba(255,215,0,0.4); }
 
         .game-card.featured:hover {
             border-color: var(--gold);
-            box-shadow: 0 12px 40px rgba(255,215,0,0.15);
+            box-shadow: 0 12px 40px rgba(255,215,0,0.2);
         }
 
         .featured-label {
@@ -323,7 +350,7 @@
             font-size: 11px;
             padding: 3px 10px;
             border-radius: 100px;
-            background: rgba(0,255,106,0.1);
+            background: rgba(168,85,247,0.1);
             color: var(--neon);
             font-weight: 500;
         }
@@ -333,10 +360,15 @@
             color: var(--gold);
         }
 
+        .tag-new {
+            background: rgba(168,85,247,0.2);
+            color: #c084fc;
+        }
+
         /* Win Highlight */
         .win-highlight {
-            background: linear-gradient(135deg, rgba(0,255,106,0.08), rgba(0,212,255,0.05));
-            border: 1px solid rgba(0,255,106,0.2);
+            background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(0,212,255,0.05));
+            border: 1px solid rgba(168,85,247,0.2);
             border-radius: 20px;
             padding: 48px 32px;
             margin: 48px 0;
@@ -437,7 +469,10 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px;
+            transition: border-color 0.2s;
         }
+
+        .feature:hover { border-color: var(--neon-dim); }
 
         .feature-icon {
             font-size: 32px;
@@ -488,8 +523,8 @@
 
         /* Creator CTA Section */
         .creator-cta {
-            background: linear-gradient(135deg, rgba(0,255,106,0.08), rgba(0,212,255,0.08));
-            border: 1px solid rgba(0,255,106,0.2);
+            background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(0,212,255,0.08));
+            border: 1px solid rgba(168,85,247,0.2);
             border-radius: 20px;
             padding: 48px 32px;
             text-align: center;
@@ -498,115 +533,107 @@
             overflow: hidden;
         }
 
-        .creator-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at center, rgba(0,255,106,0.05), transparent 70%);
-            animation: creatorGlow 8s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes creatorGlow {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-
         .creator-cta h2 {
             font-size: 32px;
             font-weight: 800;
-            margin-bottom: 8px;
-            position: relative;
+            margin-bottom: 16px;
         }
 
         .creator-cta h2 span { color: var(--neon); }
 
         .creator-cta .cta-sub {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--text-dim);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 32px;
             line-height: 1.6;
-            position: relative;
         }
-
-        .creator-cta .cta-sub strong { color: var(--cyan); }
 
         .creator-perks {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 32px;
-            position: relative;
+            gap: 24px;
+            margin: 32px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .perk {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 12px;
-            padding: 20px 16px;
-            text-align: center;
+            padding: 20px;
+            transition: border-color 0.2s;
         }
 
-        .perk-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
+        .perk:hover { border-color: var(--neon-dim); }
+
+        .perk-icon { font-size: 28px; margin-bottom: 8px; }
+        .perk h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .perk p { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
         }
 
-        .perk h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--neon);
+        .faq-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: left;
         }
 
-        .perk p {
-            font-size: 12px;
-            color: var(--text-dim);
-            line-height: 1.4;
-        }
+        .faq-q { font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--neon); }
+        .faq-a { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
 
         /* Social Proof */
         .social-proof {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 40px auto;
-            padding: 0 24px;
-            max-width: 1200px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin: 60px 0;
         }
+
+        @media (max-width: 768px) { .social-proof { grid-template-columns: 1fr; } }
 
         .proof-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 24px;
+            padding: 32px;
+            text-align: center;
+            transition: border-color 0.2s;
         }
 
-        .proof-card .proof-label {
-            font-size: 11px;
+        .proof-card:hover { border-color: var(--neon-dim); }
+
+        .proof-label {
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--cyan);
-            font-weight: 600;
-            margin-bottom: 12px;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 8px;
         }
 
-        .proof-card .proof-value {
+        .proof-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--neon);
-            margin-bottom: 4px;
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
         }
 
-        .proof-card .proof-desc {
+        .proof-desc {
             font-size: 13px;
             color: var(--text-dim);
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .proof-tweet {
@@ -614,20 +641,22 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 24px;
+            transition: border-color 0.2s;
         }
 
-        .proof-tweet .tweet-header {
+        .proof-tweet:hover { border-color: var(--neon-dim); }
+
+        .tweet-header {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
-        .proof-tweet .tweet-avatar {
-            width: 40px;
-            height: 40px;
+        .tweet-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
             border-radius: 50%;
-            background: linear-gradient(135deg, #7c3aed, #2563eb);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -635,96 +664,45 @@
             font-size: 14px;
         }
 
-        .proof-tweet .tweet-name {
-            font-weight: 700;
-            font-size: 14px;
-        }
+        .tweet-name { font-weight: 700; font-size: 14px; }
+        .tweet-handle { font-size: 12px; color: var(--text-dim); }
+        .tweet-body { font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+        .tweet-body .highlight { color: var(--neon); font-weight: 600; }
 
-        .proof-tweet .tweet-handle {
-            font-size: 12px;
-            color: var(--text-dim);
-        }
-
-        .proof-tweet .tweet-body {
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text);
-            margin-bottom: 16px;
-        }
-
-        .proof-tweet .tweet-body .highlight {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .proof-tweet .tweet-link {
+        .tweet-link {
+            display: inline-block;
+            margin-top: 12px;
             font-size: 13px;
             color: var(--cyan);
             text-decoration: none;
         }
 
-        .proof-tweet .tweet-link:hover { text-decoration: underline; }
+        .tweet-link:hover { text-decoration: underline; }
 
         /* Sticky Mobile CTA */
         .sticky-cta {
             display: none;
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(12px);
+            bottom: 0; left: 0; right: 0;
+            background: rgba(10,6,18,0.95);
+            backdrop-filter: blur(10px);
             border-top: 1px solid var(--border);
-            padding: 12px 16px;
-            z-index: 1000;
-            justify-content: center;
+            padding: 12px;
+            z-index: 997;
             gap: 12px;
+            justify-content: center;
         }
 
-        .sticky-cta .btn {
-            padding: 12px 24px;
-            font-size: 14px;
-            border-radius: 10px;
-        }
-
-        /* FAQ */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .faq-item {
-            background: rgba(0,0,0,0.2);
-            border-radius: 12px;
-            padding: 16px 20px;
-            text-align: left;
-        }
-
-        .faq-item .faq-q {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--cyan);
-            margin-bottom: 6px;
-        }
-
-        .faq-item .faq-a {
-            font-size: 13px;
-            color: var(--text-dim);
-            line-height: 1.5;
-        }
-
-        /* Responsive */
-        @media (max-width: 640px) {
-            .games-grid { grid-template-columns: 1fr; }
-            .hero-stats { gap: 20px; }
-            .hero { min-height: 60vh; padding: 60px 16px 30px; }
+        @media (max-width: 600px) {
             .sticky-cta { display: flex; }
-            .creator-cta { padding: 32px 20px; }
-            .creator-cta h2 { font-size: 24px; }
-            body { padding-bottom: 70px; }
-            .social-proof { grid-template-columns: 1fr; }
+            .hero-stats { gap: 20px; }
+            .stat-value { font-size: 22px; }
+            .hero { min-height: auto; padding-top: 60px; }
+        }
+
+        @keyframes contestPop {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
     </style>
 </head>
@@ -736,37 +714,33 @@
         <div style="position:relative;max-width:480px;margin:6vh auto;padding:40px 32px;background:linear-gradient(135deg,#1a1030 0%,#2d1b4e 50%,#0d0719 100%);border-radius:24px;border:2px solid rgba(255,215,0,0.3);box-shadow:0 0 60px rgba(255,215,0,0.15),0 20px 80px rgba(0,0,0,0.5);text-align:center;animation:contestPop 0.5s ease-out;">
             <button onclick="document.getElementById('contest-popup').style.display='none'" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.1);border:none;color:#999;font-size:24px;width:36px;height:36px;border-radius:50%;cursor:pointer;transition:all 0.2s;">✕</button>
             <div style="font-size:64px;margin-bottom:8px;">🏆</div>
-            <div style="background:linear-gradient(90deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;">$10,000 Prize Pool</div>
-            <h2 style="color:#fff;font-size:32px;font-weight:900;margin:8px 0 4px;background:linear-gradient(90deg,#FFD700,#FFF8DC,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SPIN WARS III</h2>
-            <p style="color:#aaa;font-size:15px;margin:8px 0 20px;">Play any Reel Forge game. Top 3 volume players win cash.</p>
+            <div style="background:linear-gradient(90deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;">10,000 WINR Prize Pool</div>
+            <h2 style="color:#fff;font-size:32px;font-weight:900;margin:8px 0 4px;background:linear-gradient(90deg,#FFD700,#FFF8DC,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SPIN WARS</h2>
+            <p style="color:#aaa;font-size:15px;margin:8px 0 20px;">Play any Reel Forge game. Top 3 volume players win WINR tokens.</p>
             <div style="display:flex;gap:12px;justify-content:center;margin:20px 0;">
-                <div style="background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.2);border-radius:14px;padding:16px 12px;flex:1;">
-                    <div style="font-size:24px;">🥇</div>
-                    <div style="color:#FFD700;font-size:20px;font-weight:800;">$5,000</div>
-                    <div style="color:#666;font-size:11px;">1st Place</div>
+                <div style="background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.2);border-radius:14px;padding:16px 20px;">
+                    <div style="font-size:28px;">🥇</div>
+                    <div style="color:#FFD700;font-size:20px;font-weight:900;">5,000 WINR</div>
                 </div>
-                <div style="background:rgba(192,192,192,0.08);border:1px solid rgba(192,192,192,0.2);border-radius:14px;padding:16px 12px;flex:1;">
-                    <div style="font-size:24px;">🥈</div>
-                    <div style="color:#C0C0C0;font-size:20px;font-weight:800;">$3,000</div>
-                    <div style="color:#666;font-size:11px;">2nd Place</div>
+                <div style="background:rgba(192,192,192,0.08);border:1px solid rgba(192,192,192,0.15);border-radius:14px;padding:16px 20px;">
+                    <div style="font-size:28px;">🥈</div>
+                    <div style="color:#C0C0C0;font-size:20px;font-weight:900;">3,000 WINR</div>
                 </div>
-                <div style="background:rgba(205,127,50,0.08);border:1px solid rgba(205,127,50,0.2);border-radius:14px;padding:16px 12px;flex:1;">
-                    <div style="font-size:24px;">🥉</div>
-                    <div style="color:#CD7F32;font-size:20px;font-weight:800;">$2,000</div>
-                    <div style="color:#666;font-size:11px;">3rd Place</div>
+                <div style="background:rgba(205,127,50,0.08);border:1px solid rgba(205,127,50,0.15);border-radius:14px;padding:16px 20px;">
+                    <div style="font-size:28px;">🥉</div>
+                    <div style="color:#CD7F32;font-size:20px;font-weight:900;">2,000 WINR</div>
                 </div>
             </div>
-            <div style="display:flex;gap:8px;justify-content:center;align-items:center;margin:16px 0;flex-wrap:wrap;">
-                <span style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);border-radius:8px;padding:6px 14px;color:var(--cyan);font-size:13px;font-weight:600;">📅 Jul 15–22, 2026</span>
-                <span style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2);border-radius:8px;padding:6px 14px;color:var(--green);font-size:13px;font-weight:600;">🎮 All 24 Games</span>
-                <span style="background:rgba(255,0,110,0.1);border:1px solid rgba(255,0,110,0.2);border-radius:8px;padding:6px 14px;color:var(--pink);font-size:13px;font-weight:600;">💰 $5K Min Volume</span>
+            <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0;">
+                <span style="background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.2);border-radius:8px;padding:6px 14px;color:#FFD700;font-size:13px;font-weight:600;">📅 Jul 15–22</span>
+                <span style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.2);border-radius:8px;padding:6px 14px;color:#a855f7;font-size:13px;font-weight:600;">🎮 28 Games</span>
+                <span style="background:rgba(255,0,110,0.1);border:1px solid rgba(255,0,110,0.2);border-radius:8px;padding:6px 14px;color:var(--pink);font-size:13px;font-weight:600;">💰 5K WINR Min</span>
             </div>
-            <a href="https://just.bet/contests/reelforge-spin-wars-3" target="_blank" style="display:block;margin-top:24px;padding:16px 32px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;font-weight:800;font-size:18px;border-radius:14px;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 30px rgba(255,215,0,0.3);" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 6px 40px rgba(255,215,0,0.5)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 30px rgba(255,215,0,0.3)'">⚔️ JOIN SPIN WARS III →</a>
+            <a href="https://just.bet/contests/reelforge-spin-wars-3" target="_blank" style="display:block;margin-top:24px;padding:16px 32px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;font-weight:800;font-size:18px;border-radius:14px;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 30px rgba(255,215,0,0.3);" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 6px 40px rgba(255,215,0,0.5)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 30px rgba(255,215,0,0.3)'">⚔️ JOIN SPIN WARS →</a>
             <p style="color:#555;font-size:12px;margin-top:12px;">Powered by JustBet · Arbitrum · Provably Fair</p>
         </div>
     </div>
     <script>
-        // Show contest popup after 2s, once per session
         if (!sessionStorage.getItem('contest_seen')) {
             setTimeout(() => {
                 document.getElementById('contest-popup').style.display = 'flex';
@@ -775,19 +749,13 @@
             sessionStorage.setItem('contest_seen', '1');
         }
     </script>
-    <style>
-        @keyframes contestPop {
-            from { opacity: 0; transform: scale(0.9) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-    </style>
 
-    <!-- Contest Sticky Banner (always visible) -->
+    <!-- Contest Sticky Banner -->
     <a href="https://just.bet/contests/reelforge-spin-wars-3" target="_blank" style="position:fixed;bottom:0;left:0;width:100%;z-index:998;background:linear-gradient(90deg,#1a1030,#2d1b4e,#1a1030);border-top:1px solid rgba(255,215,0,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:16px;text-decoration:none;transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
         <span style="font-size:24px;">🏆</span>
-        <span style="color:#fff;font-weight:700;font-size:15px;">SPIN WARS III</span>
-        <span style="color:#FFD700;font-weight:800;font-size:15px;">$10,000 Prize Pool</span>
-        <span style="color:#666;font-size:13px;">Jul 15–22 · Top 3 Win Cash</span>
+        <span style="color:#fff;font-weight:700;font-size:15px;">SPIN WARS</span>
+        <span style="color:#FFD700;font-weight:800;font-size:15px;">10,000 WINR Prize Pool</span>
+        <span style="color:#666;font-size:13px;">Jul 15–22 · Top 3 Win</span>
         <span style="background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;font-weight:800;font-size:13px;padding:6px 16px;border-radius:8px;">PLAY NOW →</span>
     </a>
 
@@ -797,7 +765,7 @@
             <span class="pulse"></span>
             Live on JustBet — Arbitrum
         </div>
-        <div class="rank-badge" style="background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.3);color:var(--cyan);margin-bottom:24px;">
+        <div class="rank-badge">
             ⭐ Tycoon Rank · #5 Top Creator (Lifetime)
         </div>
         <h1><span class="forge">REEL FORGE</span> <span class="studio">STUDIO</span></h1>
@@ -838,7 +806,7 @@
                 𝕏 Follow @reelforgestudio
             </a>
         </div>
-         <p style="margin-top:16px;font-size:12px;color:#666;">Sign up through our link and start playing 28 provably fair games ⚡</p>
+         <p style="margin-top:16px;font-size:12px;color:#666;position:relative;z-index:1;">Sign up through our link and start playing 28 provably fair games ⚡</p>
         </section>
 
     <!-- Contest Section -->
@@ -848,30 +816,30 @@
                 <span style="width:8px;height:8px;background:#FFD700;border-radius:50%;animation:pulse 2s infinite;"></span>
                 <span style="color:#FFD700;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Live Tournament · Jul 15–22</span>
             </div>
-            <h2 style="font-size:42px;font-weight:900;margin:8px 0;background:linear-gradient(90deg,#FFD700,#FFF8DC,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SPIN WARS III 🏆</h2>
-            <p style="color:#aaa;font-size:17px;margin:8px 0 24px;line-height:1.6;">Compete for a <strong style="color:#FFD700;">$10,000 prize pool</strong>. Play any Reel Forge game on JustBet. Top 3 players by volume split the pot.</p>
+            <h2 style="font-size:42px;font-weight:900;margin:8px 0;background:linear-gradient(90deg,#FFD700,#FFF8DC,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">SPIN WARS 🏆</h2>
+            <p style="color:#aaa;font-size:17px;margin:8px 0 24px;line-height:1.6;">Compete for a <strong style="color:#FFD700;">10,000 WINR prize pool</strong>. Play any Reel Forge game on JustBet. Top 3 players by volume split the pot.</p>
             <div style="display:flex;gap:16px;justify-content:center;margin:32px 0;flex-wrap:wrap;">
                 <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,215,0,0.15);border-radius:18px;padding:24px;min-width:140px;">
                     <div style="font-size:36px;">🥇</div>
-                    <div style="color:#FFD700;font-size:28px;font-weight:900;">$5,000</div>
+                    <div style="color:#FFD700;font-size:24px;font-weight:900;">5,000 WINR</div>
                     <div style="color:#666;font-size:13px;margin-top:4px;">1st Place</div>
                 </div>
                 <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(192,192,192,0.15);border-radius:18px;padding:24px;min-width:140px;">
                     <div style="font-size:36px;">🥈</div>
-                    <div style="color:#C0C0C0;font-size:28px;font-weight:900;">$3,000</div>
+                    <div style="color:#C0C0C0;font-size:24px;font-weight:900;">3,000 WINR</div>
                     <div style="color:#666;font-size:13px;margin-top:4px;">2nd Place</div>
                 </div>
                 <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(205,127,50,0.15);border-radius:18px;padding:24px;min-width:140px;">
                     <div style="font-size:36px;">🥉</div>
-                    <div style="color:#CD7F32;font-size:28px;font-weight:900;">$2,000</div>
+                    <div style="color:#CD7F32;font-size:24px;font-weight:900;">2,000 WINR</div>
                     <div style="color:#666;font-size:13px;margin-top:4px;">3rd Place</div>
                 </div>
             </div>
-            <a href="https://just.bet/contests/reelforge-spin-wars-3" target="_blank" style="display:inline-block;padding:18px 48px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;font-weight:800;font-size:20px;border-radius:16px;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 40px rgba(255,215,0,0.25);" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 8px 50px rgba(255,215,0,0.4)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 40px rgba(255,215,0,0.25)'">⚔️ JOIN SPIN WARS III →</a>
+            <a href="https://just.bet/contests/reelforge-spin-wars-3" target="_blank" style="display:inline-block;padding:18px 48px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;font-weight:800;font-size:20px;border-radius:16px;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 40px rgba(255,215,0,0.25);" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 8px 50px rgba(255,215,0,0.4)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 40px rgba(255,215,0,0.25)'">⚔️ JOIN SPIN WARS →</a>
             <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
-                <span style="color:#888;font-size:13px;">🎮 All 24 games eligible</span>
+                <span style="color:#888;font-size:13px;">🎮 All 28 games eligible</span>
                 <span style="color:#888;font-size:13px;">·</span>
-                <span style="color:#888;font-size:13px;">💰 $5,000 min volume to qualify</span>
+                <span style="color:#888;font-size:13px;">💰 5,000 WINR min volume to qualify</span>
                 <span style="color:#888;font-size:13px;">·</span>
                 <span style="color:#888;font-size:13px;">⚡ Provably fair on Arbitrum</span>
             </div>
@@ -941,7 +909,7 @@
             </div>
         <div class="games-grid">
 
-            <!-- Zombie Frenzy -->
+            <!-- Zombie Frenzy (TOP HIT) -->
             <a href="https://www.just.bet/game/zombie-frenzy" target="_blank" class="game-card featured">
                 <div class="game-thumb">
                     <span class="featured-label">🔥 411.80x HIT</span>
@@ -953,6 +921,54 @@
                     <div class="game-tags">
                         <span class="tag tag-hot">411.80x Hit</span>
                         <span class="tag">Party</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Trash Panda Chaos (NEW #1) -->
+            <a href="https://www.just.bet/game/raccoon-frenzy" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <span class="featured-label">🆕 NEW</span>
+                    <img src="https://r2.winr.games/generations/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1_gameid_7b266365-8636-447c-86d2-5e128e590887_LOGO_LIST_res3g.webp" alt="Trash Panda Chaos">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">Trash Panda Chaos</div>
+                    <div class="game-theme">Raccoon Street Rampage</div>
+                    <div class="game-tags">
+                        <span class="tag tag-new">New</span>
+                        <span class="tag">Chaos</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- The Last Library (NEW #2) -->
+            <a href="https://www.just.bet/game/the-last-library" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <span class="featured-label">🆕 NEW</span>
+                    <img src="https://r2.winr.games/generations/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1_gameid_de6d261b-a3b6-4452-add8-445d95e319e6_LOGO_LIST_rdfmf.webp" alt="The Last Library">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">The Last Library</div>
+                    <div class="game-theme">Forgotten Knowledge Awaits</div>
+                    <div class="game-tags">
+                        <span class="tag tag-new">New</span>
+                        <span class="tag">Mystery</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Dream Architects (NEW #3) -->
+            <a href="https://www.just.bet/game/dream-weaver" target="_blank" class="game-card">
+                <div class="game-thumb">
+                    <span class="featured-label">🆕 NEW</span>
+                    <img src="https://r2.winr.games/generations/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1_gameid_6a727479-f1c6-4ccf-aa52-3f87a155e0e5_LOGO_LIST_rxyy6.webp" alt="Dream Architects">
+                </div>
+                <div class="game-info">
+                    <div class="game-title">Dream Architects</div>
+                    <div class="game-theme">Build the World of Dreams</div>
+                    <div class="game-tags">
+                        <span class="tag tag-new">New</span>
+                        <span class="tag">Fantasy</span>
                     </div>
                 </div>
             </a>
@@ -972,26 +988,23 @@
                 </div>
             </a>
 
-            <!-- JUST LUCKY — NEW -->
+            <!-- Just Lucky -->
             <a href="https://www.just.bet/game/just-devil" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/just-lucky.webp" alt="Just Lucky">
                 </div>
                 <div class="game-info">
                     <div class="game-title">Just Lucky</div>
                     <div class="game-theme">Pure Luck Energy</div>
                     <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
                         <span class="tag">Lucky</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Winner Chicken Dinner — NEW -->
+            <!-- Winner Chicken Dinner -->
             <a href="https://www.just.bet/game/winner-chicken-dinner" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/winner-chicken-dinner.webp" alt="Winner Chicken Dinner">
                 </div>
                 <div class="game-info">
@@ -1004,49 +1017,43 @@
                 </div>
             </a>
 
-            <!-- Pomeranian Party — NEW -->
+            <!-- Pomeranian Party -->
             <a href="https://www.just.bet/game/pomeranian-party" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/pomeranian-party.webp" alt="Pomeranian Party">
                 </div>
                 <div class="game-info">
                     <div class="game-title">Pomeranian Party</div>
                     <div class="game-theme">Fluffy Pup Celebration</div>
                     <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
                         <span class="tag">Party</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Tiny Boss Empire — NEW -->
+            <!-- Tiny Boss Empire -->
             <a href="https://www.just.bet/game/tiny-boss-empire" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/tiny-boss-empire.webp" alt="Tiny Boss Empire">
                 </div>
                 <div class="game-info">
                     <div class="game-title">Tiny Boss Empire</div>
                     <div class="game-theme">Small Boss, Big Empire</div>
                     <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
                         <span class="tag">Empire</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Robot Riot — NEW -->
+            <!-- Robot Riot -->
             <a href="https://www.just.bet/game/robot-riot" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/robot-riot.webp" alt="Robot Riot">
                 </div>
                 <div class="game-info">
                     <div class="game-title">Robot Riot</div>
                     <div class="game-theme">Machine Uprising</div>
                     <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
                         <span class="tag">Sci-Fi</span>
                     </div>
                 </div>
@@ -1151,7 +1158,7 @@
                     <div class="game-title">Monster Bash</div>
                     <div class="game-theme">Monster Party Madness</div>
                     <div class="game-tags">
-                        <span class="tag tag-hot">🔥 318.75x Hit</span>
+                        <span class="tag tag-hot">318.75x Hit</span>
                         <span class="tag">Party</span>
                     </div>
                 </div>
@@ -1217,7 +1224,7 @@
                 </div>
             </a>
 
-            <!-- Around the World -->
+            <!-- Around The World -->
             <a href="https://www.just.bet/game/around-the-world-slots" target="_blank" class="game-card">
                 <div class="game-thumb">
                     <img src="images/around-the-world.webp" alt="Around The World">
@@ -1247,10 +1254,9 @@
                 </div>
             </a>
 
-            <!-- Luminous Unicorn — NEW -->
+            <!-- Luminous Unicorn -->
             <a href="https://www.just.bet/game/luminous-unicorn" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/luminous-unicorn.webp" alt="Luminous Unicorn">
                 </div>
                 <div class="game-info">
@@ -1263,17 +1269,15 @@
                 </div>
             </a>
 
-            <!-- Satoshi's Bitcoin — NEW -->
+            <!-- Satoshi's Bitcoin -->
             <a href="https://www.just.bet/game/satoshi-s-vault" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="images/satoshis-bitcoin.webp" alt="Satoshi's Bitcoin">
                 </div>
                 <div class="game-info">
                     <div class="game-title">Satoshi's Bitcoin</div>
                     <div class="game-theme">Ultimate Bitcoin Heist</div>
                     <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
                         <span class="tag">Crypto</span>
                     </div>
                 </div>
@@ -1297,66 +1301,17 @@
             <!-- Steel Sovereign -->
             <a href="https://www.just.bet/game/steel-sovereign" target="_blank" class="game-card">
                 <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
                     <img src="https://r2.winr.games/generations/0x86375Bc3dCBe314bC94936d2EBf5a11d91eDf5D1_gameid_66ab9a80-9c7d-41a9-826f-16f797495e4a_LOGO_LIST_rzzhs.webp" alt="Steel Sovereign">
                 </div>
                 <div class="game-info">
                     <div class="game-title">Steel Sovereign</div>
                     <div class="game-theme">Industrial Metal Empire</div>
                     <div class="game-tags">
-                        <span class="tag tag-new">New</span>
                         <span class="tag">Industrial</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Dream Architects — NEW -->
-            <a href="https://www.just.bet/game/dream-weaver" target="_blank" class="game-card">
-                <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
-                    <img src="https://r2.winr.games/generations/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1_gameid_6a727479-f1c6-4ccf-aa52-3f87a155e0e5_LOGO_LIST_rxyy6.webp" alt="Dream Architects">
-                </div>
-                <div class="game-info">
-                    <div class="game-title">Dream Architects</div>
-                    <div class="game-theme">Build the World of Dreams</div>
-                    <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
-                        <span class="tag">Fantasy</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- The Last Library — NEW -->
-            <a href="https://www.just.bet/game/the-last-library" target="_blank" class="game-card">
-                <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
-                    <img src="https://r2.winr.games/generations/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1_gameid_de6d261b-a3b6-4452-add8-445d95e319e6_LOGO_LIST_rdfmf.webp" alt="The Last Library">
-                </div>
-                <div class="game-info">
-                    <div class="game-title">The Last Library</div>
-                    <div class="game-theme">Forgotten Knowledge Awaits</div>
-                    <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
-                        <span class="tag">Mystery</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Trash Panda Chaos — NEW -->
-            <a href="https://www.just.bet/game/raccoon-frenzy" target="_blank" class="game-card">
-                <div class="game-thumb">
-                    <span class="featured-label">🆕 NEW</span>
-                    <img src="https://r2.winr.games/generations/0x86375bc3dcbe314bc94936d2ebf5a11d91edf5d1_gameid_7b266365-8636-447c-86d2-5e128e590887_LOGO_LIST_res3g.webp" alt="Trash Panda Chaos">
-                </div>
-                <div class="game-info">
-                    <div class="game-title">Trash Panda Chaos</div>
-                    <div class="game-theme">Raccoon Street Rampage</div>
-                    <div class="game-tags">
-                        <span class="tag tag-hot">NEW GAME</span>
-                        <span class="tag">Chaos</span>
-                    </div>
-                </div>
-            </a>
         </div>
     </div>
 
@@ -1427,7 +1382,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-q">How much can I earn?</div>
-                    <div class="faq-a">10–20% revenue share on every bet. Top creators do $500–$4,000+/week volume.</div>
+                    <div class="faq-a">10–20% revenue share on every bet. Top creators do 500–4,000+ WINR weekly volume.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q">How long to launch?</div>
